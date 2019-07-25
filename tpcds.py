@@ -46,7 +46,7 @@ def getNextQueryId():
 
 def submitJob():
     qid = getNextQueryId()
-    payload = {"file": "local:///opt/hadoop/conf/jars/tpcds-test-0.1.jar", "className": "com.example.cluster.TcpdsTest", "args": [qid, qid + 1]}
+    payload = {"file": "local:///opt/hadoop/jars/tpcds-test-0.1.jar", "className": "com.example.cluster.TcpdsTest", "args": [qid, qid + 1]}
     r = requests.post(url = LIVY_URL, data=json.dumps(payload), headers={"Content-Type": "application/json"})
     data = r.json()
     print(data)

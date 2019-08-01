@@ -7,9 +7,8 @@ from datetime import datetime, timedelta
 import os
 import re
 
-# TODO: merge spark-test and airflow-test into a single chart
-#  and export LIVY_HOSTNAME (i.e. RELEASE_NAME-livy) in the env via chart config map and use it. 
-LIVY_URL = 'http://spark-test-livy.spark-test/batches'
+livyHost = os.environ['LIVY_HOST']
+LIVY_URL = "http://" + livyHost + "/batches"
 
 def checkStatus(**kwargs):
     batchId = kwargs['ti'].xcom_pull(task_ids='submitJob')

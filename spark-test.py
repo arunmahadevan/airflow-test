@@ -6,7 +6,8 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
 import os
 
-LIVY_URL = 'http://spark-test-livy.spark-test/batches'
+livyHost = os.environ['LIVY_HOST']
+LIVY_URL = "http://" + livyHost + "/batches"
 
 def checkStatus(**kwargs):
     batchId = kwargs['ti'].xcom_pull(task_ids='submitJob')

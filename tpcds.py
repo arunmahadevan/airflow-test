@@ -7,6 +7,13 @@ from datetime import datetime, timedelta
 import os
 import re
 
+#---------------------------------------------------------------------------
+# A simple airflow DAG that periodically (every 15 mins) runs a TPCDS query,
+# waits for the job to complete and scrapes the results from the logs.
+# 
+# This uses Livy REST APIs to submit the job, get the status and results.
+#---------------------------------------------------------------------------
+
 livyHost = os.environ['LIVY_HOST']
 LIVY_URL = "http://" + livyHost + "/batches"
 

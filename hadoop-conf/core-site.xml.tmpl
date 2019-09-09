@@ -158,4 +158,8 @@
     <name>fs.s3a.secret.key</name>
     <value>{{.Env.S3_SECRET_KEY}}</value>
   </property>
+  <property>
+    <name>fs.s3a.aws.credentials.provider</name>
+    <value>org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider</value>
+  </property>
 </configuration>

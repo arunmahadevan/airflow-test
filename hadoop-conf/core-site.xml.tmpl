@@ -4,7 +4,7 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>s3a://arunmk8/warehouse</value>
+    <value>file:///tmp</value>
   </property>
   <property>
     <name>fs.trash.interval</name>
@@ -157,5 +157,9 @@
   <property>
     <name>fs.s3a.secret.key</name>
     <value>{{.Env.S3_SECRET_KEY}}</value>
+  </property>
+  <property>
+    <name>fs.s3a.aws.credentials.provider</name>
+    <value>org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider</value>
   </property>
 </configuration>
